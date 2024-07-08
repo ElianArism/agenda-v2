@@ -8,7 +8,8 @@ import { GridComponent } from '@components/grid/grid.component';
   template: `
     <section>
       <app-grid
-        [displayedColumns]="['position', 'name', 'weight', 'symbol']"
+        [displayedColumns]="['position', 'name', 'weight', 'symbol', 'action']"
+        [sortableColumns]="['position', 'name', 'weight', 'symbol']"
         [data]="mocked_data"
       />
     </section>
