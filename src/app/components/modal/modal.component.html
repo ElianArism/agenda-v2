@@ -1,0 +1,45 @@
+<article>
+  <div mat-dialog-title>
+    <h1>Contact Form</h1>
+  </div>
+  <form class="content" mat-dialog-content [formGroup]="contactForm">
+    <div class="row">
+      <mat-form-field class="full-width" appareance="outline">
+        <mat-label> Name </mat-label>
+        <input type="text" matInput formControlName="name" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="full-width" appareance="outline">
+        <mat-label> Phone </mat-label>
+        <input type="text" matInput formControlName="phone" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="full-width" appareance="outline">
+        <mat-label> Email </mat-label>
+        <input type="text" matInput formControlName="email" />
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button
+        class="action"
+        mat-raised-button
+        [mat-dialog-close]="false"
+        type="button"
+      >
+        Cancel
+      </button>
+      <button
+        color="primary"
+        [disabled]="contactForm.invalid"
+        class="action"
+        mat-raised-button
+        [mat-dialog-close]="false"
+        type="button"
+      >
+        {{ getButtonTitle() }}
+      </button>
+    </div>
+  </form>
+</article>

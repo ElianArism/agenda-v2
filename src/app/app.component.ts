@@ -1,11 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { ModalService } from './services/modal.service';
 
 // Components
 import { ToolbarComponent } from '@components/toolbar/toolbar.component';
 // Material
 import { MatCardModule } from '@angular/material/card';
+import { ModalComponent } from '@components/modal/modal.component';
+import { IContact } from './interfaces';
 
 const MATERIAL_MODULES = [MatCardModule];
 @Component({
@@ -16,10 +20,11 @@ const MATERIAL_MODULES = [MatCardModule];
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  private readonly modalService: ModalService = inject(ModalService);
   readonly title: string = 'agenda';
 
   createContact(): Promise<void> {
-    console.log('funciona!');
+    this.modalService.openModal<ModalComponent, IContact>(ModalComponent);
     return Promise.resolve();
   }
 }
