@@ -7,4 +7,5 @@ export const environment = {
     authDomain: 'angular-agenda-4639c.firebaseapp.com',
     messagingSenderId: '457301334873',
   },
+  COLLECTION_NAME: 'contacts',
 };
