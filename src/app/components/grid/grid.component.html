@@ -20,11 +20,15 @@
 
         @if(col === 'action') {
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button color="accent">
+          <button (click)="editElement(element)" mat-icon-button color="accent">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button mat-icon-button color="warn">
+          <button
+            (click)="deleteElement(element.id)"
+            mat-icon-button
+            color="warn"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </td>

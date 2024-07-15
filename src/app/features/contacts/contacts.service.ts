@@ -50,7 +50,14 @@ export class ContactsService {
     const getAllQuery = query(this.contactsRef, orderBy('createdAt', 'desc'));
     return collectionData(getAllQuery, {
       idField: 'id ',
-    }) as Observable<IContact[]>;
+    }).pipe(
+      map((contacts) => {
+        return contacts.map((contact) => ({
+          ...contact,
+          id: (contact as any)['id '],
+        }));
+      })
+    ) as Observable<IContact[]>;
   }
 
   getContactById(id: string): Observable<IContact> {

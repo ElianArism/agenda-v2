@@ -1,11 +1,17 @@
 <section>
   <mat-card>
     <mat-card-content>
+      @defer {
       <app-toolbar (onAddContact)="createContact()" />
 
       <!-- Dynamic content  -->
       <router-outlet />
       <!-- End dynamic content -->
+      } @loading (minimum 1s) {
+      <div class="spinner-container">
+        <mat-spinner mode="indeterminate"></mat-spinner>
+      </div>
+      }
     </mat-card-content>
   </mat-card>
 </section>
